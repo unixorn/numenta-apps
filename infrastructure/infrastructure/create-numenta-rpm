@@ -202,6 +202,7 @@ def parseCLA():
                       dest="whitelisted",
                       help="Add item in product directory to output RPM",
                       default=[])
+
   parser.add_argument("--products-dir",
                       dest="productsDir",
                       help="Path of products directory.")
