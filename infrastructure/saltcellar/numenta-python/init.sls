@@ -34,6 +34,15 @@ anaconda-python:
     - watch_in:
       - cmd: enforce-anaconda-permissions
 
+anaconda-site-packages:
+  file.directory:
+    - name: /opt/numenta/anaconda/lib/python2.7/site-packages
+    - user: ec2-user
+    - group: ec2-user
+    - mode: 755
+    - require:
+      - user: ec2-user
+
 # Install our standard pip packages into anaconda python
 
 anaconda-paver:
@@ -116,6 +125,7 @@ enforce-anaconda-permissions:
   cmd.wait:
     - name: chown -R ec2-user:ec2-user /opt/numenta/anaconda
     - require:
+      - file: anaconda-site-packages
       - group: ec2-user
       - pkg: anaconda-python
       - user: ec2-user
