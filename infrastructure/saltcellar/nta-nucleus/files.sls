@@ -57,7 +57,6 @@
 
 # Populate /usr/local/sbin
 {% for cmd in ['publicip',
-               'lockrun',
                'wait-until-network-up'] %}
 /usr/local/sbin/{{ cmd }}:
   file.managed:
@@ -66,3 +65,16 @@
     - group: wheel
     - mode: 0755
 {% endfor %}
+
+{% if grains['os_family'] == 'RedHat' %}
+# CentOS-specific files
+{% for cmd in ['lockrun'] %}
+/usr/local/sbin/{{ cmd }}:
+  file.managed:
+    - source: salt://nta-nucleus/files/{{ cmd }}
+    - user: root
+    - group: wheel
+    - mode: 0755
+{% endfor %}
+
+{% endif %}
