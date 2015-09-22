@@ -21,22 +21,15 @@
 # Formula: nta-nucleus.files
 
 {% for dirpath in ['/etc/numenta',
+                   '/opt/numenta',
                    '/usr/local/bin',
                    '/usr/local/sbin'] %}
 {{ dirpath }}:
   file.directory:
     - user: root
-    - group: root
+    - group: wheel
     - mode: 0755
 {% endfor %}
-
-/opt/numenta:
-  file.directory:
-    - user: ec2-user
-    - group: ec2-user
-    - mode: 0755
-    - require:
-      - user: ec2-user
 
 # Install salt helper scripts
 {% for cmd in ['get-minion-id',
@@ -45,7 +38,7 @@
   file.managed:
     - source: salt://nta-nucleus/files/saltsupport/{{ cmd }}
     - user: root
-    - group: root
+    - group: wheel
     - mode: 0755
 {% endfor %}
 
@@ -58,7 +51,7 @@
   file.managed:
     - source: salt://nta-nucleus/files/{{ cmd }}
     - user: root
-    - group: root
+    - group: wheel
     - mode: 0755
 {% endfor %}
 
@@ -70,6 +63,6 @@
   file.managed:
     - source: salt://nta-nucleus/files/{{ cmd }}
     - user: root
-    - group: root
+    - group: wheel
     - mode: 0755
 {% endfor %}
