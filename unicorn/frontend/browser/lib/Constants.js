@@ -18,19 +18,31 @@
 // http://numenta.org/licenses/
 
 'use strict';
+export const ACTIONS = Object.freeze({
+  ADD_MODEL_SUCCESS: 'ADD_MODEL_SUCCESS',
+  ADD_MODEL_FAILED: 'ADD_MODEL_FAILED',
 
-/**
- * Get List of models
- */
-export default (actionContext) => {
-  return new Promise(resolve => {
-    // TODO: Load persisted model references
-    let list = [
-      {modelId: 'id1', filename: 'filename1', metric: 'metric1'},
-      {modelId: 'id2', filename: 'filename2', metric: 'metric2'},
-      {modelId: 'id3', filename: 'filename3', metric: 'metric3'}
-    ];
-    actionContext.dispatch('LIST_MODELS_SUCCESS', list);
-    resolve(list);
-  });
-};
+  DELETE_MODEL_SUCCESS: 'DELETE_MODEL_SUCCESS',
+  DELETE_MODEL_FAILED: 'DELETE_MODEL_FAILED',
+
+  RECEIVE_DATA_SUCCESS: 'RECEIVE_DATA_SUCCESS',
+  RECEIVE_DATA_FAILED: 'RECEIVE_DATA_FAILED',
+
+  SEND_DATA_SUCCESS: 'SEND_DATA_SUCCESS',
+  SEND_DATA_FAILED: 'SEND_DATA_FAILED',
+
+  START_MODEL_SUCCESS: 'START_MODEL_SUCCESS',
+  START_MODEL_FAILED: 'START_MODEL_FAILED',
+
+  STOP_MODEL_SUCCESS: 'STOP_MODEL_SUCCESS',
+  STOP_MODEL_FAILED: 'STOP_MODEL_FAILED',
+
+  UPLOADED_FILE_SUCCESS: 'UPLOADED_FILE_SUCCESS',
+  UPLOADED_FILE_FAILED: 'UPLOADED_FILE_FAILED',
+
+  LIST_FILES_SUCCESS: 'LIST_FILES_SUCCESS',
+  LIST_FILES_FAILURE: 'LIST_FILES_FAILURE',
+
+  LIST_METRICS_SUCCESS: 'LIST_METRICS_SUCCESS',
+  LIST_METRICS_FAILURE: 'LIST_METRICS_FAILURE',
+});

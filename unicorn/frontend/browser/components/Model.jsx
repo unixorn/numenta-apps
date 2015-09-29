@@ -23,13 +23,13 @@ import connectToStores from 'fluxible-addons-react/connectToStores';
 import Material from 'material-ui';
 import React from 'react';
 import StopModelAction from '../actions/StopModel';
-import ReceiveDataAction from '../actions/ReceiveData';
 import ModelData from '../components/ModelData';
 import ModelStore from '../stores/ModelStore';
 
 const {
-  Card, CardHeader, CardText, CardActions, FlatButton
+  Card, CardHeader, CardText, CardActions, FlatButton, Avatar, Styles
 } = Material;
+const {Colors} = Styles;
 
 @connectToStores([ModelStore], () => ({
 }))
@@ -53,19 +53,6 @@ export default class Model extends React.Component {
     let store = this.context.getStore(ModelStore);
     let model = store.getModel(this.props.modelId);
     this.state = Object.assign({}, model);
-
-    //TODO: Use real data
-    let addData = () => {
-      let data = [new Date(), Math.random()];
-      this.context.executeAction(ReceiveDataAction, {
-        modelId: this.state.modelId,
-        data: data
-      });
-      if (this.state.active) {
-        setTimeout(addData, 1000);
-      }
-    }.bind(this);
-    setTimeout(addData, 1000);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -81,7 +68,7 @@ export default class Model extends React.Component {
   _getStyles() {
     return {
       root: {
-        width: '100%',
+        width: '80%',
         padding: '10px',
         marginLeft: '256px'
       }
@@ -92,6 +79,9 @@ export default class Model extends React.Component {
     let styles = this._getStyles();
     let model = this.state;
     let actions;
+    let avatar;
+    let title;
+    let titleColor;
     if (model.active) {
       actions = (
         <CardActions  expandable={true}>
@@ -99,12 +89,22 @@ export default class Model extends React.Component {
             onClick={this._onStopButtonClick.bind(this)}/>
         </CardActions>);
     }
-
+    if (model.error) {
+      avatar = (<Avatar backgroundColor={Colors.red500}>E</Avatar>);
+      title = model.metric + ': ' + model.error.message;
+      titleColor = Colors.red500;
+    } else {
+      avatar = (<Avatar backgroundColor={Colors.green500}></Avatar>);
+      title = model.metric;
+      titleColor = Colors.darkBlack;
+    }
     return (
       <Card initiallyExpanded={true} style={styles.root}>
         <CardHeader showExpandableButton={true}
           subtitle={model.filename}
-          title={model.metric} />
+          avatar={avatar}
+          title={title}
+          titleColor={titleColor} />
         {actions}
         <CardText expandable={true}>
           <ModelData modelId={model.modelId} />

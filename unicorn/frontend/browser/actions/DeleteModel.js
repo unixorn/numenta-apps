@@ -18,14 +18,13 @@
 // http://numenta.org/licenses/
 
 'use strict';
+import {ACTIONS} from '../lib/Constants';
 
 /**
  * Delete model
  */
 export default (actionContext, modelId) => {
-  return new Promise(resolve => {
-    // TODO: Remove persisted model reference
-    actionContext.dispatch('DELETE_MODEL_SUCCESS', modelId);
-    resolve(modelId);
-  });
+  actionContext.dispatch(ACTIONS.DELETE_MODEL_SUCCESS, modelId);
+  let modelClient = actionContext.getModelClient();
+  modelClient.removeModel(modelId);
 };

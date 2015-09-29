@@ -18,7 +18,7 @@
 // http://numenta.org/licenses/
 
 'use strict';
-
+import {ACTIONS} from '../lib/Constants';
 /**
  * Receive model data
  * @param  {Object} payload The action payload in the following format:
@@ -30,8 +30,5 @@
  *                          </code>
  */
 export default (actionContext, payload) => {
-  return new Promise(resolve => {
-    actionContext.dispatch('RECEIVE_DATA_SUCCESS', payload);
-    resolve(payload);
-  });
+  return actionContext.dispatch(ACTIONS.RECEIVE_DATA_SUCCESS, payload);
 };

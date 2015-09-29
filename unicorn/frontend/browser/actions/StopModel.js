@@ -19,13 +19,12 @@
 
 'use strict';
 
+import {ACTIONS} from '../lib/Constants';
 /**
  * Stop running model
  */
 export default (actionContext, modelId) => {
-  return new Promise(resolve => {
-    // TODO: Use model api to stop running model
-    actionContext.dispatch('STOP_MODEL_SUCCESS', modelId);
-    resolve(modelId);
-  });
+  actionContext.dispatch(ACTIONS.STOP_MODEL_SUCCESS, modelId);
+  let modelClient = actionContext.getModelClient();
+  modelClient.removeModel(modelId);
 };

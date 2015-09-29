@@ -27,7 +27,10 @@ export default class ModelStore extends BaseStore {
     'ADD_MODEL_SUCCESS': '_handleAddModel',
     'DELETE_MODEL_SUCCESS': '_handleDeleteModel',
     'LIST_MODELS_SUCCESS': '_handleListModels',
-    'STOP_MODEL_SUCCESS': '_handleStopModel'
+    'STOP_MODEL_SUCCESS': '_handleStopModel',
+    'START_MODEL_SUCCESS': '_handleStartModel',
+    'STOP_MODEL_FAILED': '_handleModelFailed',
+    'START_MODEL_FAILED': '_handleModelFailed'
   };
 
   constructor(dispatcher) {
@@ -43,6 +46,7 @@ export default class ModelStore extends BaseStore {
    *               modelId: {String},   // Required model id
    *               filename: {String},  // File name
    *               metric: {String},    // Metric Name
+   *               timestampField: {String},    // Timestamp field Name
    *               active: {Boolean}    // Whether or not this model is running
    *             }
    *             </code>
@@ -63,6 +67,7 @@ export default class ModelStore extends BaseStore {
    *      	modelId: "id",
    *      	filename: "filename",
    *      	metric: "metric",
+   *      	timestampField: "timestamp",
    *      	active: true|false
    *      }
    *      ...
@@ -97,6 +102,30 @@ export default class ModelStore extends BaseStore {
     let model = this._models.get(modelId);
     if (model) {
       model.active = false;
+      model.error = null;
+      this.emitChange();
+    }
+  }
+
+  /**
+   * Mark the model as active
+   * @param  {[type]} modelId The model to update
+   */
+  _handleStartModel(modelId) {
+    let model = this._models.get(modelId);
+    if (model) {
+      model.active = true;
+      model.error = null;
+      this.emitChange();
+    }
+  }
+
+  _handleModelFailed(payload) {
+    let {modelId, error} = payload;
+    let model = this._models.get(modelId);
+    if (model) {
+      model.active = false;
+      model.error = error;
       this.emitChange();
     }
   }
@@ -110,6 +139,7 @@ export default class ModelStore extends BaseStore {
    *               modelId: {String},  // Required model id
    *               filename: {String}, // File name
    *               metric: {String}    // Metric Name
+   *               timestampField: {String},    // Timestamp field Name
    *               active: {Boolean}    // Whether or not this model is running
    *             }
    *             </code>
@@ -127,6 +157,7 @@ export default class ModelStore extends BaseStore {
    *      	modelId: "id",
    *      	filename: "filename",
    *      	metric: "metric",
+   *      	timestampField: "timestamp",
    *      	active: true|false
    *      }
    *      ...
