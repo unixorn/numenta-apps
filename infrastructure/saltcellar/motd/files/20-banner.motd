@@ -46,9 +46,11 @@ fi
 # Display Kernel version
 echo "Kernel version: $(uname -r)"
 
-# Display CentOS version
-centos_version=$(cat /etc/redhat-release)
-echo "CentOS version: ${centos_version}"
+if [ -f /etc/redhat-release ]; then
+  # Display CentOS version
+  centos_version=$(cat /etc/redhat-release)
+  echo "CentOS version: ${centos_version}"
+fi
 
 # Display build time
 if [ -f /etc/numenta/centos/build.time ]; then
