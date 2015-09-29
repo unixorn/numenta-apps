@@ -30,6 +30,13 @@ include:
   - devtools
   - nta-nucleus
 
+# We use Anaconda on CentOS 6 because system python there is so stale it
+# is still 2.6.
+#
+# We're running 10.10 on OS X, and its system python is 2.7.10, so we don't
+# add the aggravation of another python install.
+
+{% if grains['os_family'] == 'RedHat' %}
 anaconda-python:
   pkg:
     - installed
@@ -39,47 +46,59 @@ anaconda-python:
       - pkg: compiler-toolchain
     - watch_in:
       - cmd: enforce-anaconda-permissions
+{% endif %}
 
-# Install our standard pip packages into anaconda python
+# Install our standard pip packages into anaconda python on CentOS and system
+# python on OS X.
 
 anaconda-paver:
   pip.installed:
     - name: paver == 1.2.3
+{% if grains['os_family'] == 'RedHat' %}
     - bin_env: /opt/numenta/anaconda/bin/pip
     - watch_in:
       - cmd: enforce-anaconda-permissions
     - require:
       - pkg: anaconda-python
+{% endif %}
 
 anaconda-pip:
   pip.installed:
     - name: pip == 7.1.2
+{% if grains['os_family'] == 'RedHat' %}
     - bin_env: /opt/numenta/anaconda/bin/pip
     - watch_in:
       - cmd: enforce-anaconda-permissions
     - require:
       - pkg: anaconda-python
+{% endif %}
 
 anaconda-setuptools:
   pip.installed:
     - name: setuptools
     - upgrade: True
+{% if grains['os_family'] == 'RedHat' %}
     - bin_env: /opt/numenta/anaconda/bin/pip
     - watch_in:
       - cmd: enforce-anaconda-permissions
     - require:
       - pkg: anaconda-python
+{% endif %}
 
 anaconda-wheel:
   pip.installed:
     - name: wheel == 0.24.0
+{% if grains['os_family'] == 'RedHat' %}
     - bin_env: /opt/numenta/anaconda/bin/pip
     - watch_in:
       - cmd: enforce-anaconda-permissions
     - require:
       - pkg: anaconda-python
+{%endif %}
 
-# Install a python2.7 symlink so /usr/bin/env python2.7 will work
+{% if grains['os_family'] == 'RedHat' %}
+# CentOS-specific fixes
+# Install a python2.7 symlink so /usr/bin/env python2.7 will work on CentOS 6
 python-27-symlink:
   file.symlink:
     - target: /opt/numenta/anaconda/bin/python
@@ -89,11 +108,11 @@ python-27-symlink:
       - pkg: anaconda-python
 
 # Once we have installed our packages, make sure that the anaconda python
-# directory tree has the correct ownership.
+# directory tree has the correct ownership on CentOS 6.
 enforce-anaconda-permissions:
   cmd.wait:
-    - name: chown -R ec2-user:ec2-user /opt/numenta/anaconda
+    - name: chown -R ec2-user:wheel /opt/numenta/anaconda
     - require:
-      - group: ec2-user
       - pkg: anaconda-python
       - user: ec2-user
+{% endif %}

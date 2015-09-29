@@ -20,13 +20,20 @@
 # ----------------------------------------------------------------------
 # Formula: numenta-python
 # We need mysql
+
+# Jump through hoops to install correctly into anaconda-python on CentOS
+# and system-python on OS X.
 anaconda-mysql:
   pip.installed:
     - name: mysql
+{% if grains['os_family'] == 'RedHat' %}
     - bin_env: /opt/numenta/anaconda/bin/pip
     - watch_in:
       - cmd: enforce-anaconda-permissions
+{% endif %}
     - require:
-      - pkg: anaconda-python
-      - sls: mysql.client
       - sls: devtools
+      - sls: mysql.client
+{% if grains['os_family'] == 'RedHat' %}
+      - pkg: anaconda-python
+{% endif %}
