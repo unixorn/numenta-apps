@@ -21,6 +21,7 @@
 # Formula: aws-support
 
 # Install AWS support tooling.
+{% if grains['os_family'] == 'RedHat' %}
 
 # Add AMI test to confirm that getsshkeys is installed
 /etc/numenta/tests/test_getsshkeys.py:
@@ -49,12 +50,13 @@
   file.managed:
     - source: salt://aws-support/files/20-aws-info.motd
     - user: root
-    - group: root
+    - group: wheel
     - mode: 0755
     - require:
       - file: /etc/update-motd.d
     - watch_in:
       - cmd: update-motd
+
 
 # Load SSH keys from EC2 on boot
 getsshkeys:
@@ -67,3 +69,15 @@ aws-tools:
     - pkgs:
       - ec2-metadata
       - s3cmd
+{% endif %}
+
+{% if grains['os_family'] == 'MacOS' %}
+# Mac versions of the AWS packages. Salt brew module doesn't support
+# pkg.latest :-()
+# We also don't need ec2-metadata since OS X won't run in EC2.
+aws-tools:
+  pkg:
+    - installed
+    - pkgs:
+      - s3cmd
+{% endif %}
