@@ -431,7 +431,7 @@ class ModelInferenceResult(_ModelRequestResultBase):
 
     self.rowID = rowID
     self.status = status
-    self.anomalyScore = anomalyScore
+    self.anomalyScore = float(anomalyScore)
     self.multiStepBestPredictions = multiStepBestPredictions
     self.errorMessage = errorMessage
 
