@@ -433,7 +433,8 @@ class ModelInferenceResult(_ModelRequestResultBase):
     self.status = status
     # Cast to float to work around TypeError during json serialization when
     # anomaly score is numpy.float16 or numpy.float32
-    self.anomalyScore = float(anomalyScore)
+    self.anomalyScore = (float(anomalyScore)
+                         if anomalyScore is not None else None)
     self.multiStepBestPredictions = multiStepBestPredictions
     self.errorMessage = errorMessage
 
