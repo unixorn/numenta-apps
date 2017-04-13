@@ -3,8 +3,6 @@
 > Cross-platform Desktop Application to demonstrate basic HTM functionality to
 > users using their own data files.
 
-**WARNING! UNDER HEAVY DEVELOPMENT.**
-
 
 ## License
 
