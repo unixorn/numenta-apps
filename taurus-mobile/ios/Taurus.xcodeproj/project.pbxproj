@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00809E261EC1FF8F00709DD4 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00809E251EC1FF8F00709DD4 /* AppConfig.swift */; };
 		236016D11BCFDCD200AF82FE /* TwitterHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236016D01BCFDCD200AF82FE /* TwitterHeaderCell.swift */; };
 		236016D31BD00A9500AF82FE /* Appearence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236016D21BD00A9500AF82FE /* Appearence.swift */; };
 		236016D71BD1410100AF82FE /* ShareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236016D61BD1410100AF82FE /* ShareService.swift */; };
@@ -21,7 +22,6 @@
 		23AB23031BA75F170091A5E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23AB23011BA75F170091A5E6 /* LaunchScreen.storyboard */; };
 		23AB230E1BA75F170091A5E6 /* TaurusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB230D1BA75F170091A5E6 /* TaurusTests.swift */; };
 		23AB23191BA75F170091A5E6 /* TaurusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB23181BA75F170091A5E6 /* TaurusUITests.swift */; };
-		23AD4EC31BB2FE080041D650 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD4EC21BB2FE080041D650 /* AppConfig.swift */; };
 		23AD4EC51BB2FEC00041D650 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 23AD4EC41BB2FEC00041D650 /* README.md */; };
 		23AD4F161BB31B8D0041D650 /* InstanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD4F131BB31B8D0041D650 /* InstanceViewController.swift */; };
 		23AD4F181BB31BDC0041D650 /* TimeSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD4F171BB31BDC0041D650 /* TimeSliderView.swift */; };
@@ -91,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00809E251EC1FF8F00709DD4 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		2319D5721BA7798100935447 /* Taurus-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Taurus-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		236016D01BCFDCD200AF82FE /* TwitterHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterHeaderCell.swift; sourceTree = "<group>"; };
 		236016D21BD00A9500AF82FE /* Appearence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearence.swift; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		23AB23141BA75F170091A5E6 /* TaurusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaurusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23AB23181BA75F170091A5E6 /* TaurusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaurusUITests.swift; sourceTree = "<group>"; };
 		23AB231A1BA75F170091A5E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23AD4EC21BB2FE080041D650 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		23AD4EC41BB2FEC00041D650 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		23AD4F131BB31B8D0041D650 /* InstanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstanceViewController.swift; path = ../src/controllers/InstanceViewController.swift; sourceTree = "<group>"; };
 		23AD4F171BB31BDC0041D650 /* TimeSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSliderView.swift; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 			children = (
 				23AD4F191BB31C640041D650 /* AppDelegate.swift */,
 				23AD78F51BA77731003FBEF4 /* TarausApplication.swift */,
-				23AD4EC21BB2FE080041D650 /* AppConfig.swift */,
+				00809E251EC1FF8F00709DD4 /* AppConfig.swift */,
 			);
 			name = app;
 			path = src/app;
@@ -494,7 +494,7 @@
 				TargetAttributes = {
 					23AB22F41BA75F170091A5E6 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = P6JXXWWH54;
+						DevelopmentTeam = 2589Z673MU;
 						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -646,6 +646,7 @@
 				23F58D751BBAC21D00C7C6B6 /* SettingsController.swift in Sources */,
 				23AD79131BA778B3003FBEF4 /* Metric.swift in Sources */,
 				23DF8CB21BA9CEB700ECAE98 /* TaurusDataSyncService.swift in Sources */,
+				00809E261EC1FF8F00709DD4 /* AppConfig.swift in Sources */,
 				23AD790B1BA778B3003FBEF4 /* AggregationType.swift in Sources */,
 				23DF8CAB1BA9CE9C00ECAE98 /* MetricType.swift in Sources */,
 				23AD790F1BA778B3003FBEF4 /* CoreDataFactory.swift in Sources */,
@@ -671,7 +672,6 @@
 				23AD4F181BB31BDC0041D650 /* TimeSliderView.swift in Sources */,
 				23AD791A1BA778B3003FBEF4 /* DataUtils.swift in Sources */,
 				238055801BBEE7190048E214 /* TutorialController.swift in Sources */,
-				23AD4EC31BB2FE080041D650 /* AppConfig.swift in Sources */,
 				23AD79161BA778B3003FBEF4 /* SQLiteHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -818,7 +818,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1.0.147;
-				DEVELOPMENT_TEAM = P6JXXWWH54;
+				DEVELOPMENT_TEAM = 2589Z673MU;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Taurus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -839,7 +839,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1.0.147;
-				DEVELOPMENT_TEAM = P6JXXWWH54;
+				DEVELOPMENT_TEAM = 2589Z673MU;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Taurus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;

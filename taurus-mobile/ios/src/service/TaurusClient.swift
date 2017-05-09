@@ -21,7 +21,7 @@ import Foundation
 
 open class TaurusClient : GrokClient {
     
-    static let TABLE_SUFFIX : String  = AppConfig.currentStage 
+    static let TABLE_SUFFIX : String  = AppConfig.environment
     
     static let  METRIC_TABLE : String = "taurus.metric" + TABLE_SUFFIX
     static let  METRIC_DATA_TABLE : String = "taurus.metric_data" + TABLE_SUFFIX

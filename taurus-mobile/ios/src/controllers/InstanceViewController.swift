@@ -351,7 +351,6 @@ class InstanceViewController: UIViewController, UITableViewDataSource, UITableVi
     */
     func getSectionIndex (_ section: Int) -> Int {
         var sections: Int = 0
-        var index = 0
         for index in 0...tableData.count {
             let data = tableData[index]!
             if data.count == 0 {
@@ -362,7 +361,7 @@ class InstanceViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             sections += 1
         }
-        return index
+        return tableData.count
     }
 
 
