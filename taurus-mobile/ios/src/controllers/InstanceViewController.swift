@@ -361,7 +361,7 @@ class InstanceViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             sections += 1
         }
-        return tableData.count
+        return sections
     }
 
 
