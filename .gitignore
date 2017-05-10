@@ -1,3 +1,5 @@
+taurus-mobile/*bfg-report/
+.git.*
 *.pyc
 *.sublime-project
 *.sublime-workspace
