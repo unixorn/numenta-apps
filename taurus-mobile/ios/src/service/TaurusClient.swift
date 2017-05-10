@@ -78,7 +78,6 @@ open class TaurusClient : GrokClient {
     */
     open func getMetrics() -> [Metric?]!{
         var metrics = [Metric]()
-        print("getMetrics")
         let  request: AWSDynamoDBScanInput =  AWSDynamoDBScanInput()
         request.tableName = TaurusClient.METRIC_TABLE
         request.attributesToGet = ["uid", "name", "server", "metricType","metricTypeName","symbol" ]
@@ -120,7 +119,6 @@ open class TaurusClient : GrokClient {
                         do {
                             let json = try JSON(data: dataFromString!)
                             let metric = TaurusApplication.dataFactory.createMetric( uid, name: name, instanceId: server, serverName: server, lastRowId: 0, parameters: json)
-                            print("metric name: " + (metric?.getName())!)
                             metrics.append(metric!)
                         } catch {print(error)}
                     }
@@ -222,7 +220,6 @@ open class TaurusClient : GrokClient {
         query?.indexName = "taurus.metric_data-metric_name_index"
         
         var done = false
-        print("getTweets")
         repeat {
             let task =  awsClient.query( query).continue({ (task: AWSTask!) -> Any? in
                 let error = task.error
@@ -325,7 +322,6 @@ open class TaurusClient : GrokClient {
         query?.keyConditions = keyConditions
         query?.scanIndexForward = ascending as NSNumber
         
-        print("getMetricValues")
         var done = false
         repeat {
             let task =  awsClient.query( query).continue({ (task: AWSTask!) -> Any? in
@@ -350,7 +346,6 @@ open class TaurusClient : GrokClient {
                         let date = DataUtils.parseGrokDate(timeStr.s)
                         let value = Float((item["metric_value"] as! AWSDynamoDBAttributeValue).n)!
                         let anonomaly_score = Float((item["anomaly_score"] as! AWSDynamoDBAttributeValue).n)!
-                        print("Successfully metrics value retrieved: " + String(describing: anonomaly_score))
         
                         let dateSeconds = DataUtils.timestampFromDate(date!)
                         
@@ -435,7 +430,6 @@ open class TaurusClient : GrokClient {
             
             repeat {
                 let task = awsClient.query( query).continue({ (task: AWSTask!) -> Any? in
-                    print("No error produced so far")
                     let error = task.error
                     if (error != nil ){
                         print(error!)
@@ -451,7 +445,6 @@ open class TaurusClient : GrokClient {
                     dateFormatter.timeZone =  TimeZone(identifier : "UTC")
                     
                     //let json = JSON(data: myResults)
-                    print("getting all instance data for date")
                     
                     for object in myResults!{
                         if let item = object as? [String:Any]{
@@ -515,10 +508,8 @@ open class TaurusClient : GrokClient {
 
         // Check if "from" date and "to" date falls on the same day
         if (fromDay == toDay) {
-            print("getting instance data from today")
              getAllInstanceDataForDate(from, fromHour: (calendar as NSCalendar).component(NSCalendar.Unit.hour, from: from), toHour: (calendar as NSCalendar).component(NSCalendar.Unit.hour, from: to), ascending: ascending, callback : callback)
         } else {
-            print("getting instance data from a different day")
             // Get Multiple days
             var totalDays = toDay - fromDay;
             // Account for intervals at the end of the year where fromDay could be greater than toDay

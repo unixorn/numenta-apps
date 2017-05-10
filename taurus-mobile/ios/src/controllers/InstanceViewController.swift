@@ -299,8 +299,12 @@ class InstanceViewController: UIViewController, UITableViewDataSource, UITableVi
 
         return numSections
     }
-
-
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30.0
+    }
+    
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -368,8 +372,8 @@ class InstanceViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let tableViewWidth = self.instanceTable.bounds.width
 
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableViewWidth, height: self.instanceTable.sectionHeaderHeight))
-        let label = UILabel(frame: CGRect(x: 10, y: 0, width: tableViewWidth - 20, height: self.instanceTable.sectionHeaderHeight))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableViewWidth, height: 30.0))
+        let label = UILabel(frame: CGRect(x: 10, y: 0, width: tableViewWidth - 20, height: 30.0))
         label.backgroundColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 1.0)
         label.font  = UIFont.boldSystemFont(ofSize: 14.0)
         headerView.addSubview(label)
