@@ -188,7 +188,7 @@ class LineChartView: UIView {
         context.addLine(to: CGPoint(x: CGFloat(points[2]), y: CGFloat(points[3])))
         
    
-        for i in 1...data.count {
+        for i in 1...data.count-1 {
             x1 = points[ (i-1)*4+2]
             y1 = points[ (i-1)*4+3]
 
