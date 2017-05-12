@@ -52,10 +52,6 @@ from sqlalchemy.dialects import mysql
 MYSQL_CHARSET = "utf8"
 MYSQL_COLLATE = MYSQL_CHARSET + "_unicode_ci"
 
-MYSQL_CHARSET_UTF8MB4 = "utf8mb4"
-MYSQL_COLLATE_UTF8MB4  = MYSQL_CHARSET_UTF8MB4 + "_unicode_ci"
-
-
 # 190 facilitates utf8mb4 ("max key length is 767 bytes")
 MAX_UTF8_KEY_LENGTH=190
 
@@ -144,9 +140,7 @@ twitterTweets = Table(
   # NULL if not available or if the legacy row predates this column.
   # Source: user.name
   Column("real_name",
-         mysql.VARCHAR(length=_MAX_TWEET_REAL_NAME_LEN,
-                       charset=MYSQL_CHARSET_UTF8MB4,
-                       collation=MYSQL_COLLATE_UTF8MB4),
+         mysql.VARCHAR(length=_MAX_TWEET_REAL_NAME_LEN),
          nullable=True),
 
   # Id of the original tweet that was retweeted. NULL if message is not a
@@ -194,9 +188,7 @@ twitterTweets = Table(
   #  predate this column.
   # Source: retweeted_status.user.name
   Column("retweeted_real_name",
-         mysql.VARCHAR(length=_MAX_TWEET_REAL_NAME_LEN,
-                       charset=MYSQL_CHARSET_UTF8MB4,
-                       collation=MYSQL_COLLATE_UTF8MB4),
+         mysql.VARCHAR(length=_MAX_TWEET_REAL_NAME_LEN),
          nullable=True,
          server_default=""),
 
