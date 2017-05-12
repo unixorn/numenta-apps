@@ -50,7 +50,7 @@ _DSN_FORMAT = ("mysql://%(user)s:%(password)s@%(host)s:%(port)s/%(db)s?"
 
 
 _REPOSITORY_OPTIONS = dict(
-  charset=schema.MYSQL_CHARSET_UTF8MB4
+  charset=schema.MYSQL_CHARSET
 )
 
 
