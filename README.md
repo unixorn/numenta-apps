@@ -1,6 +1,8 @@
 This is the umbrella project for all of the components that make up the
 Numenta product-line.
 
+## This project is in Maintenance Mode
+We have no plans to further develop this codebase or release new versions of applications contained within this repository. 
 
 ## Installation
 
