@@ -14,21 +14,21 @@
 # limitations under the License
 
 if not ENV.has_key?('CONTAINER_NAME')
-  CONTAINER_NAME="grok/burnrate"
+  CONTAINER_NAME="htmit/burnrate"
 else
   CONTAINER_NAME=ENV['CONTAINER_NAME']
 end
 
-# Load GROK_SERVER and GROK_API_KEY from environment if present
-if not ENV.has_key?('GROK_SERVER')
-  GROK_SERVER="https://yourEC2instance.example.com"
+# Load HTMIT_SERVER and HTMIT_API_KEY from environment if present
+if not ENV.has_key?('HTMIT_SERVER')
+  HTMIT_SERVER="https://yourEC2instance.example.com"
 else
-  GROK_SERVER=ENV['GROK_SERVER']
+  HTMIT_SERVER=ENV['HTMIT_SERVER']
 end
-if not ENV.has_key?('GROK_API_KEY')
-  GROK_API_KEY="abc123"
+if not ENV.has_key?('HTMIT_API_KEY')
+  HTMIT_API_KEY="abc123"
 else
-  GROK_API_KEY=ENV['GROK_API_KEY']
+  HTMIT_API_KEY=ENV['HTMIT_API_KEY']
 end
 
 task :help do
@@ -47,7 +47,7 @@ end
 
 desc "test #{CONTAINER_NAME} container"
 task :test => [:build] do
-  sh %{ docker run --rm -i -e GROK_SERVER="#{GROK_SERVER}" -e GROK_API_KEY="#{GROK_API_KEY}" -t #{CONTAINER_NAME}  /bin/bash }
+  sh %{ docker run --rm -i -e HTMIT_SERVER="#{HTMIT_SERVER}" -e HTMIT_API_KEY="#{HTMIT_API_KEY}" -t #{CONTAINER_NAME}  /bin/bash }
 end
 
 desc "history of #{CONTAINER_NAME}"

@@ -22,9 +22,9 @@
 
 import Foundation
   /**
-  * <code>GrokClient</code> interface wraps a connection to the Grok REST API
+  * <code>HTMITClient</code> interface wraps a connection to the REST API
   */
-public protocol GrokClient {
+public protocol HTMITClient {
 
     func isOnline() -> Bool
     func login()

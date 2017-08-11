@@ -82,17 +82,17 @@ open class DataUtils{
         return log(1.0000000001 - value) / LOG_1_MINUS_0_9999999999
     }
     
-    static var grokFormater : DateFormatter?
+    static var htmitFormater : DateFormatter?
     
-    static func parseGrokDate (_ date : String)->Date? {
+    static func parseHTMITDate (_ date : String)->Date? {
         
-        if (grokFormater == nil){
-            grokFormater = DateFormatter()
-            grokFormater!.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-            grokFormater!.timeZone = TimeZone(identifier : "UTC")
+        if (htmitFormater == nil){
+            htmitFormater = DateFormatter()
+            htmitFormater!.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            htmitFormater!.timeZone = TimeZone(identifier : "UTC")
         }
        
-        let dateObj = grokFormater!.date(from: date)
+        let dateObj = htmitFormater!.date(from: date)
 
         return   dateObj
     }
@@ -102,7 +102,7 @@ open class DataUtils{
      /*   let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
          dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)*/
-        return  parseGrokDate(date)
+        return  parseHTMITDate(date)
     }
     
     
@@ -122,10 +122,10 @@ open class DataUtils{
         
         let active : Bool  = value > 0;
         var calculated : Double = DataUtils.logScale(abs(value));
-        if (Float(calculated) >= GrokApplication.redBarFloor) {
+        if (Float(calculated) >= HTMITApplication.redBarFloor) {
             // Red
             calculated += RED_SORT_FLOOR;
-        } else if (Float(calculated) >= GrokApplication.yellowBarFloor) {
+        } else if (Float(calculated) >= HTMITApplication.yellowBarFloor) {
             // Yellow
             calculated += YELLOW_SORT_FLOOR;
         } else {

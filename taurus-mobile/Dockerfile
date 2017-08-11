@@ -60,7 +60,7 @@ chmod +x /opt/numenta/products/taurus-mobile/android/gradlew
 VOLUME /opt/numenta/products
 
 # Move application signing keystore to default location
-ADD .keys/grok.keystore /etc/numenta/products/keys/grok.keystore
+ADD .keys/htmit.keystore /etc/numenta/products/keys/htmit.keystore
 
 # Build taurus-mobile
 WORKDIR /opt/numenta/products/taurus-mobile/android

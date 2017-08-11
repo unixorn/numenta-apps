@@ -22,11 +22,11 @@
 
 
   /**
-  * Factory used to create {@link GrokClient} instances.
+  * Factory used to create {@link HTMITClient} instances.
   * <p>
   * This factory is mainly used to facilitated unit testing allowing the test to replace the
-  * {@link GrokClient} used with a test version returning test data.
+  * {@link HTMITClient} used with a test version returning test data.
   */
-protocol GrokClientFactory {
-    func createClient(_ serverUrl: String!, pass: String!) -> GrokClient!
+protocol HTMITClientFactory {
+    func createClient(_ serverUrl: String!, pass: String!) -> HTMITClient!
 }

@@ -40,7 +40,7 @@ class  CoreDatabaseImpl : CoreDatabase {
     /** getter for filename
    */
     func getFileName() -> String!{
-         return "grok.db"
+         return "htmit.db"
     }
    
     /** exposed database object */
@@ -796,7 +796,7 @@ class  CoreDatabaseImpl : CoreDatabase {
     - parameter dataFactory : factory to create objects
     */
     init(dataFactory : CoreDataFactory ){
-        sqlHelper = SQLiteHelper(name: "grok.db")
+        sqlHelper = SQLiteHelper(name: "htmit.db")
       //  database = sqlHelper.database;
         self.dataFactory  = dataFactory
     }

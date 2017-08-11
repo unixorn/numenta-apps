@@ -22,7 +22,7 @@ import Foundation
 /*
  class holds references to a bunch of statics factories and data
 */
-class TaurusApplication : GrokApplication{
+class TaurusApplication : HTMITApplication{
     
     static var dataFactory : TaurusDataFactory!
     static var marketCalendar : MarketCalendar = MarketCalendar()
@@ -30,7 +30,7 @@ class TaurusApplication : GrokApplication{
    
     
     static func getTaurusDatabase()->TaurusDatabase{
-        return GrokApplication.database as! TaurusDatabase
+        return HTMITApplication.database as! TaurusDatabase
     }
     
        

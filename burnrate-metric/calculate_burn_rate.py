@@ -89,7 +89,7 @@ def getBurnRate(instance):
 
   #warning: If this function comes across an instance not in the dictionary, it
   #         will return a rate of $50.00/hr (much higher than any real hourly
-  #         rate) which should be recognized by Grok as an anomaly.
+  #         rate) which should be recognized by HTM-IT as an anomaly.
   return _PriceTable.getTable().get(key, {"USD": 50.00})["USD"]
 
 

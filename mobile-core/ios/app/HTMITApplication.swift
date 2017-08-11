@@ -22,7 +22,7 @@
 
 import Foundation
 
-class GrokApplication{
+class HTMITApplication{
     static var database :CoreDatabase?
     
     static var redBarFloor : Float = 0.9

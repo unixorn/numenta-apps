@@ -80,7 +80,7 @@ In order to run the pipeline, you need to ensure a couple things are setup prope
 
 - Ensure the Products repo is on your `PYTHONPATH`
 - Run `pip install -r pipeline/requirements.txt`
-- Your **Application Signing** keystore file must be located at `/etc/numenta/products/keys/grok.keystore`. See [mobile-core/android/common.gradle](../mobile-core/android/common.gradle) for ways to override the default location.
+- Your **Application Signing** keystore file must be located at `/etc/numenta/products/keys/htmit.keystore`. See [mobile-core/android/common.gradle](../mobile-core/android/common.gradle) for ways to override the default location.
 - `ANDROID_HOME` environment variable should be set to the location of your Android SDK (alternatively, set this in `local.properties`)
 - `BUILD_PASSWORD` environment variable must be set properly
 - Run an Android device locally. You can get a list of devices using `android list avd` and launch one using `emulator -avd <avd_name>`. To create a new device use `android avd` command.
@@ -115,10 +115,10 @@ From within the `infrastructure/coreos/` directory relative to `numenta-apps` ro
 
 ### Build **taurus-mobile** and run tests using docker
 
-- Copy your **Application Signing** keystore file to `.keys/grok.keystore` directory:
+- Copy your **Application Signing** keystore file to `.keys/htmit.keystore` directory:
 
         mkdir .keys
-        cp /etc/numenta/products/keys/grok.keystore .key/grok.keystore
+        cp /etc/numenta/products/keys/htmit.keystore .key/htmit.keystore
 
 - From `numenta-apps/taurus-mobile`:
 
