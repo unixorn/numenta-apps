@@ -89,7 +89,7 @@ class InstanceViewController: UIViewController, UITableViewDataSource, UITableVi
 
         // Show header icon
 
-        let icon = UIImage(named: "ic_grok_logo")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        let icon = UIImage(named: "ic_htmit_logo")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
 
         // icon?.renderingMode = UIImageRenderingModeAlwaysOriginal
         logo = UIBarButtonItem (image: icon, style: UIBarButtonItemStyle.plain, target: nil, action: nil)

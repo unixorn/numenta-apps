@@ -24,7 +24,7 @@ import Foundation
 
 
 open class DataSyncService{
-    var client : GrokClient
+    var client : HTMITClient
 
     /*Bunch of strings used for notifications of data changed events */
     
@@ -99,7 +99,7 @@ open class DataSyncService{
         // Save results to database
         var dataChanged = false;
        // Metric localMetric;
-        let database = GrokApplication.getDatabase()
+        let database = HTMITApplication.getDatabase()
         for  remoteMetric in remoteMetrics! {
             // Check if it is a new metric
             let localMetric = database.getMetric(remoteMetric?.getId());
@@ -179,9 +179,9 @@ open class DataSyncService{
     
     
     /** Construct sync service
-        - parameter client: GrokClient to use for syncing
+        - parameter client: HTMITClient to use for syncing
     */
-    init(client : GrokClient) {
+    init(client : HTMITClient) {
         self.client = client
     }
     

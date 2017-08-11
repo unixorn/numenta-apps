@@ -79,7 +79,7 @@ class TaurusDatabase: CoreDatabaseImpl,TaurusDBProtocol {
         let whereClause:String? =  "timestamp >= ? AND timestamp <= ?"
         let columns = ["instance_id", "timestamp", "anomaly_score"/*, "aggregation"*/, "metric_mask"]
             
-            for i in 0...GrokApplication.getNumberOfDaysToSync(){
+            for i in 0...HTMITApplication.getNumberOfDaysToSync(){
             
             let cursor = self.sqlHelper.query(db!, tableName: InstanceData.TABLE_NAME, columns: columns,
             whereClause: whereClause, whereArgs: [NSNumber(value: from as Int64), NSNumber(value: to as Int64)], sortBy: nil)

@@ -42,8 +42,8 @@
 		23AD79151BA778B3003FBEF4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD79031BA778B3003FBEF4 /* Notification.swift */; };
 		23AD79161BA778B3003FBEF4 /* SQLiteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD79041BA778B3003FBEF4 /* SQLiteHelper.swift */; };
 		23AD79171BA778B3003FBEF4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD79051BA778B3003FBEF4 /* SwiftyJSON.swift */; };
-		23AD79181BA778B3003FBEF4 /* GrokClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD79071BA778B3003FBEF4 /* GrokClient.swift */; };
-		23AD79191BA778B3003FBEF4 /* GrokClientFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD79081BA778B3003FBEF4 /* GrokClientFactory.swift */; };
+		23AD79181BA778B3003FBEF4 /* HTMITClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD79071BA778B3003FBEF4 /* HTMITClient.swift */; };
+		23AD79191BA778B3003FBEF4 /* HTMITClientFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD79081BA778B3003FBEF4 /* HTMITClientFactory.swift */; };
 		23AD791A1BA778B3003FBEF4 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AD790A1BA778B3003FBEF4 /* DataUtils.swift */; };
 		23BF792A1BB4C67D0025E996 /* MetricAnomalyChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF79291BB4C67D0025E996 /* MetricAnomalyChartData.swift */; };
 		23CFAC3D1BB4A1E100B4E882 /* MetricCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CFAC3C1BB4A1E100B4E882 /* MetricCell.swift */; };
@@ -65,7 +65,7 @@
 		23DF8CEA1BA9CF9C00ECAE98 /* AnomalyChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF8CE91BA9CF9C00ECAE98 /* AnomalyChartData.swift */; };
 		23DF8CEC1BA9CFA800ECAE98 /* InstanceAnomalyChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF8CEB1BA9CFA800ECAE98 /* InstanceAnomalyChartData.swift */; };
 		23E477D91BF2AA7400BA3858 /* CustomMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E477D81BF2AA7400BA3858 /* CustomMenuController.swift */; };
-		23ED58D01BB088D800EEEEC1 /* GrokApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED58CF1BB088D800EEEEC1 /* GrokApplication.swift */; };
+		23ED58D01BB088D800EEEEC1 /* HTMITApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED58CF1BB088D800EEEEC1 /* HTMITApplication.swift */; };
 		23F58D711BBA287200C7C6B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F58D701BBA287200C7C6B6 /* Images.xcassets */; };
 		23F58D751BBAC21D00C7C6B6 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F58D741BBAC21D00C7C6B6 /* SettingsController.swift */; };
 		B94DA73A1C20CC14004493DE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B94DA7391C20CC14004493DE /* Settings.bundle */; };
@@ -133,8 +133,8 @@
 		23AD79031BA778B3003FBEF4 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		23AD79041BA778B3003FBEF4 /* SQLiteHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteHelper.swift; sourceTree = "<group>"; };
 		23AD79051BA778B3003FBEF4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		23AD79071BA778B3003FBEF4 /* GrokClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrokClient.swift; sourceTree = "<group>"; };
-		23AD79081BA778B3003FBEF4 /* GrokClientFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrokClientFactory.swift; sourceTree = "<group>"; };
+		23AD79071BA778B3003FBEF4 /* HTMITClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMITClient.swift; sourceTree = "<group>"; };
+		23AD79081BA778B3003FBEF4 /* HTMITClientFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMITClientFactory.swift; sourceTree = "<group>"; };
 		23AD790A1BA778B3003FBEF4 /* DataUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
 		23BF79291BB4C67D0025E996 /* MetricAnomalyChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricAnomalyChartData.swift; sourceTree = "<group>"; };
 		23CFAC3C1BB4A1E100B4E882 /* MetricCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricCell.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 		23DF8CE91BA9CF9C00ECAE98 /* AnomalyChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnomalyChartData.swift; sourceTree = "<group>"; };
 		23DF8CEB1BA9CFA800ECAE98 /* InstanceAnomalyChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceAnomalyChartData.swift; sourceTree = "<group>"; };
 		23E477D81BF2AA7400BA3858 /* CustomMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMenuController.swift; sourceTree = "<group>"; };
-		23ED58CF1BB088D800EEEEC1 /* GrokApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GrokApplication.swift; path = app/GrokApplication.swift; sourceTree = "<group>"; };
+		23ED58CF1BB088D800EEEEC1 /* HTMITApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTMITApplication.swift; path = app/HTMITApplication.swift; sourceTree = "<group>"; };
 		23F58D701BBA287200C7C6B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		23F58D741BBAC21D00C7C6B6 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsController.swift; path = src/controllers/SettingsController.swift; sourceTree = SOURCE_ROOT; };
 		2F0819AE74E8803AA6703C7B /* libPods-Taurus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Taurus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,8 +345,8 @@
 			isa = PBXGroup;
 			children = (
 				23DF8CB61BA9CEE900ECAE98 /* DataSyncService.swift */,
-				23AD79071BA778B3003FBEF4 /* GrokClient.swift */,
-				23AD79081BA778B3003FBEF4 /* GrokClientFactory.swift */,
+				23AD79071BA778B3003FBEF4 /* HTMITClient.swift */,
+				23AD79081BA778B3003FBEF4 /* HTMITClientFactory.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -410,7 +410,7 @@
 		23ED58D11BB088E100EEEEC1 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				23ED58CF1BB088D800EEEEC1 /* GrokApplication.swift */,
+				23ED58CF1BB088D800EEEEC1 /* HTMITApplication.swift */,
 			);
 			name = app;
 			sourceTree = "<group>";
@@ -630,7 +630,7 @@
 				23AD79111BA778B3003FBEF4 /* Instance.swift in Sources */,
 				23BF792A1BB4C67D0025E996 /* MetricAnomalyChartData.swift in Sources */,
 				23AD4F1A1BB31C640041D650 /* AppDelegate.swift in Sources */,
-				23AD79181BA778B3003FBEF4 /* GrokClient.swift in Sources */,
+				23AD79181BA778B3003FBEF4 /* HTMITClient.swift in Sources */,
 				23CFAC3D1BB4A1E100B4E882 /* MetricCell.swift in Sources */,
 				23AD4F1F1BB3AA590041D650 /* InstanceDetailsViewController.swift in Sources */,
 				23DF8CA41BA9CDE500ECAE98 /* TaurusInstanceData.swift in Sources */,
@@ -638,7 +638,7 @@
 				23E477D91BF2AA7400BA3858 /* CustomMenuController.swift in Sources */,
 				23AD79101BA778B3003FBEF4 /* CoreDataFactoryImpl.swift in Sources */,
 				23DF8CA51BA9CDE500ECAE98 /* TaurusNotification.swift in Sources */,
-				23AD79191BA778B3003FBEF4 /* GrokClientFactory.swift in Sources */,
+				23AD79191BA778B3003FBEF4 /* HTMITClientFactory.swift in Sources */,
 				236016D11BCFDCD200AF82FE /* TwitterHeaderCell.swift in Sources */,
 				238055821BBEE88D0048E214 /* TutorialPageController.swift in Sources */,
 				236989821BA919C200EA4FB5 /* MarketCalendar.swift in Sources */,
@@ -666,7 +666,7 @@
 				23DF8CA01BA9CDE500ECAE98 /* AnomalyValue.swift in Sources */,
 				238055C21BBEED020048E214 /* ModelController.swift in Sources */,
 				236016D71BD1410100AF82FE /* ShareService.swift in Sources */,
-				23ED58D01BB088D800EEEEC1 /* GrokApplication.swift in Sources */,
+				23ED58D01BB088D800EEEEC1 /* HTMITApplication.swift in Sources */,
 				23AD4F161BB31B8D0041D650 /* InstanceViewController.swift in Sources */,
 				23AD79171BA778B3003FBEF4 /* SwiftyJSON.swift in Sources */,
 				23AD4F181BB31BDC0041D650 /* TimeSliderView.swift in Sources */,

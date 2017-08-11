@@ -19,7 +19,7 @@
 
 import Foundation
 
-open class TaurusClient : GrokClient {
+open class TaurusClient : HTMITClient {
     
     static let TABLE_SUFFIX : String  = AppConfig.environment
     
@@ -343,7 +343,7 @@ open class TaurusClient : GrokClient {
                     //    print( item )
                     if let item = object as? [String:Any] {
                         let timeStr = item["timestamp"] as! AWSDynamoDBAttributeValue
-                        let date = DataUtils.parseGrokDate(timeStr.s)
+                        let date = DataUtils.parseHTMITDate(timeStr.s)
                         let value = Float((item["metric_value"] as! AWSDynamoDBAttributeValue).n)!
                         let anonomaly_score = Float((item["anomaly_score"] as! AWSDynamoDBAttributeValue).n)!
         

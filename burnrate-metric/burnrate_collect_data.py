@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-""" Grok Custom Metrics data collector for collecting AWS burn rate metrics."""
+"""  Custom Metrics data collector for collecting AWS burn rate metrics."""
 import datetime, time, sys, csv, os.path
 from optparse import OptionParser
 from grokcli.api import GrokSession
@@ -24,9 +24,9 @@ from calculate_burn_rate import getDataByRegions
 
 
 
-def sendMetricsToGrok(opt):
+def sendMetricsToHTMIT(opt):
   """Collects data for burnrate metrics, writes it to a csv file and
-  sends it to Grok.
+  sends it to HTMIT
 
   Collects the following metrics (toggled with CL flags):
   - Total hourly burnrate
@@ -38,14 +38,14 @@ def sendMetricsToGrok(opt):
   - Total number all instances
   - Regional number all instances (use -t)
   """
-  grok = GrokSession(server=opt.server, apikey=opt.key)
+  session = GrokSession(server=opt.server, apikey=opt.key)
   regionalData = getDataByRegions()
   ts = time.mktime(datetime.datetime.utcnow().timetuple())
 
   with open(opt.outputfile, "ab") as csvfile:
     csvwriter = csv.writer(csvfile)
 
-    with grok.connect() as sock:
+    with session.connect() as sock:
       # Regional burn rate calculation/send
       if opt.regionalBurnrates:
         if opt.verbose:
@@ -243,10 +243,10 @@ def writeMetricsToFile(opt):
 if __name__ == "__main__":
   parser = OptionParser()
   parser.add_option("-s", "--server",
-                    help="Grok server. (default: %default)",
+                    help="HTM-IT server. (default: %default)",
                     dest="server", default="https://localhost")
   parser.add_option("-k", "--key",
-                    help="Grok API key.",
+                    help="HTM-IT API key.",
                     dest="key", default="")
   parser.add_option("-i", "--inputfile",
                     help="File with existing burnrate data.",
@@ -290,10 +290,10 @@ if __name__ == "__main__":
 
   if opt.inputfile != "" and not opt.noserver:
     if opt.verbose:
-      print "Sending existing data to grok..."
+      print "Sending existing data to HTM-IT..."
     with open(opt.inputfile, "rb") as inputFile:
-      grok = GrokSession(server=opt.server, apikey=opt.key)
-      with grok.connect() as sock:
+      session = GrokSession(server=opt.server, apikey=opt.key)
+      with session.connect() as sock:
         csvreader = csv.reader(inputFile)
         for row in csvreader:
           metricName = row[0]
@@ -306,6 +306,6 @@ if __name__ == "__main__":
       open(opt.outputfile, "w").close()
 
     if not opt.noserver:
-      sendMetricsToGrok(opt)
+      sendMetricsToHTMIT(opt)
     else:
       writeMetricsToFile(opt)

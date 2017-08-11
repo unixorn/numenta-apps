@@ -127,14 +127,14 @@ is passed by `superviosrd.conf` to `rmq_metric_collector_agent` as the value of
 its `--metric-addr` command-line option. NOTE: we don't hardcode the value in
 `supervisord.conf` in order to avoid having undersirable metric data samples
 accidentally forwarded from developer laptops and other test machines to the
-production Grok instance.
+production HTM-IT instance.
 
 `TAURUS_RMQ_METRIC_PREFIX`: This defines the prefix to be used for metrics
-sent to the Grok instance.  It is passed by `supervisord.conf` to
+sent to the HTM-IT instance.  It is passed by `supervisord.conf` to
 `rmq_metric_collector_agent` as the value of its `--metric-prefix` command-line
 option. NOTE: we don't hardcode the value in `supervisord.conf` in order to
 avoid accidently corrupting metric data on an existing HTM-IT installation. This
-allows having a single Grok instance monitor multiple Taurus instances
+allows having a single HTM-IT instance monitor multiple Taurus instances
 (e.g., Production and Staging)
 
 *NOTE:* If `TAURUS_RMQ_METRIC_DEST` and `TAURUS_RMQ_METRIC_PREFIX` env vars
