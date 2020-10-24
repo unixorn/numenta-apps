@@ -8,7 +8,7 @@ pytest==2.5.1
 pytest-cov==1.6
 pytest-xdist==1.8
 numpy==1.9.2
-requests==2.0.1
+requests==2.20.0
 msgpack-python==0.3.0
 validictory==0.9.1
 psutil==1.0.1
