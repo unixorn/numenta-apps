@@ -69,7 +69,7 @@
     "esdoc": "0.4.3",
     "esdoc-es7-plugin": "0.0.3",
     "esformatter": "0.7.3",
-    "eslint": "1.10.1",
+    "eslint": "7.12.0",
     "eslint-plugin-react": "3.10.0",
     "gulp": "3.9.0",
     "gulp-util": "3.0.7",
